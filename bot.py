@@ -16,7 +16,7 @@ LOG_CHANNEL = os.environ.get("LOG_CHANNEL")
 app = c("lol", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
 
-@app.on_message(filters.user(OWNER_ID) & filters.command("eval"))
+@app.on_message(filters.user(OWNER_ID) & filters.command(",eval"))
 @capture_err
 async def eval(client, message):
     status_message = await message.reply_text("Processing ...")
