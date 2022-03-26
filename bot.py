@@ -10,6 +10,8 @@ OWNER_ID = os.environ.get("OWNER_ID")
 API_ID = int(os.environ.get("API_ID", 0))
 API_HASH = os.environ.get("API_HASH")
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
+LOG_CHANNEL = os.environ.get("LOG_CHANNEL")
+
 
 app = c("lol", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
@@ -72,3 +74,6 @@ async def aexec(code, client, message):
         + "".join(f"\n {l_}" for l_ in code.split("\n"))
     )
     return await locals()["__aexec"](client, message)
+
+if __name__ == "__main__":
+  app.run()
